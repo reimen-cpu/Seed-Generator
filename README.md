@@ -1,4 +1,5 @@
 # BIP-39 Seedphrase Generator 🌱
+[![Download Executable](https://img.shields.io/badge/Download_Executable-v1.0.0-blue?style=for-the-badge&logo=linux)](https://github.com/reimen-cpu/Seed-Generator/releases/latest/download/seed-generator)
 
 A simple offline tool to generate valid BIP-39 mnemonics. This project is primarily designed as a companion utility to provide test data for the **BIP-39 Seedphrase Obfuscator**.
 
