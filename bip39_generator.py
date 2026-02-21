@@ -118,6 +118,13 @@ class BIP39GeneratorApp:
         y = (self.root.winfo_screenheight() // 2) - (h // 2)
         self.root.geometry(f"+{x}+{y}")
 
+        home = os.path.expanduser("~")
+        desktop_dir = os.path.join(home, "Escritorio")
+        if not os.path.exists(desktop_dir):
+            desktop_dir = os.path.join(home, "Desktop")
+        self.shared_dir = os.path.join(desktop_dir, "seed-tools-txt")
+        os.makedirs(self.shared_dir, exist_ok=True)
+
         # ── Cargar lista de palabras ──
         self.wordlist_path = self._find_wordlist()
         try:
@@ -351,7 +358,7 @@ class BIP39GeneratorApp:
                 self._log(f"  ✅ Frase #{i}: {phrase}")
 
             # Escribir archivo de salida
-            output_dir = str(Path(__file__).resolve().parent)
+            output_dir = self.shared_dir
             output_path = os.path.join(output_dir, "frases.txt")
 
             with open(output_path, "w", encoding="utf-8") as f:
